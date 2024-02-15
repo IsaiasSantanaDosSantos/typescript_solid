@@ -11,6 +11,7 @@ import {
   NoDiscount,
   TenPercentDiscount,
 } from "./classes/discount";
+import { EnterpriseCustumer, IndividualCustumer } from "./classes/custumer";
 
 const fiftyPercentDiscount = new FiftyPercentDiscount();
 const tenPercentDiscount = new TenPercentDiscount();
@@ -18,7 +19,21 @@ const noDiscount = new NoDiscount();
 const shoppingCart = new ShoppingCart(fiftyPercentDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
-const order = new Order(shoppingCart, messaging, persistency);
+// const individualCustumer = new IndividualCustumer(
+//   "Luiz",
+//   "Miranda",
+//   "333.333.333-33",
+// );
+const enterpriseCustumer = new EnterpriseCustumer(
+  "Empresa Gigante",
+  "222.222.222/2222-2",
+);
+const order = new Order(
+  shoppingCart,
+  messaging,
+  persistency,
+  enterpriseCustumer,
+);
 
 shoppingCart.addItem(new Product("Camisa", 49.91));
 shoppingCart.addItem(new Product("Caderno", 9.9123));
